@@ -6,6 +6,7 @@ use Livewire\WithPagination;
 use Livewire\Component;
 use App\Models\Llamada;
 use App\Exports\CallerExport;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
@@ -19,7 +20,7 @@ class Index extends Component
     public $reason;
     public $detail;
     public $call_answer;
-    public $call_answerBy;
+    public $call_answer_by;
     public $llamada_id;
     public $isModalOpen = 0;
 
@@ -89,20 +90,21 @@ class Index extends Component
         $this->detail = $llamada->detail;
         $this->reason = $llamada->reason;
         $this->call_answer = $llamada->call_answer;
-        $this->call_aswer_by = $llamada->call_aswer_by;
+        $this->call_answer_by = $llamada->call_answer_by;
     
         $this->openModalPopover();
 
     }
 
     private function resetCreateForm(){
+        $this->llamada_id = '';
         $this->municipality = '';
         $this->type = '';
         $this->caller_name = '';
         $this->detail = '';
         $this->reason = '';
         $this->call_answer = '';
-        $this->call_aswer_by = '';
+        $this->call_answer_by = $this->call_answerBy = Auth::user()->name;
     }
 
     public function delete($id)

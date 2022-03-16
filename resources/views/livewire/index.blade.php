@@ -6,7 +6,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
 
-                <div class="flex flex-wrap -mx-3">
+                <div class="flex flex-wrap m-0">
                     <div class="w-80 md:w-1/2 px-3 mb-6 md:mb-0 px-2">
                         
                         <div className="flex items-center max-w-md shadow rounded border-0 p-3">
@@ -38,14 +38,16 @@
                 @endif
 
                 <button wire:click="create()"
-                    class="my-4 inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base font-bold text-white shadow-sm hover:bg-red-700">
+                    class="my-4 inline-flex text-2xl justify-center w-full rounded-md border border-transparent px-4 py-2 bg-sky-600 text-base font-bold text-white shadow-sm hover:bg-blue-700">
                     Registrar llamada
                 </button>
                 @if($isModalOpen)
                     @include('livewire.llamadas')
                 @endif
 
-                <table class="table-fixed w-full">
+                <div style="overflow-x: auto">
+
+                <table class="w-full">
                     <thead>
                         <tr class="bg-gray-100">
                             <th class="px-4 py-2 w-20">Municipio</th>
@@ -78,6 +80,8 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                </div>
             </div>
         </div>
     </div>
