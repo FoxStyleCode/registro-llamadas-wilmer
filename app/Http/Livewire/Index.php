@@ -119,4 +119,8 @@ class Index extends Component
 
     }
 
+    public function cerrarModal(){
+        $this->closeModalPopover();
+    }
+
 }
